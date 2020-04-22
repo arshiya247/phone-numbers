@@ -1,0 +1,25 @@
+.toolbar{
+  background-color: #EDEDED;
+}
+
+table {
+  width: 100%;
+}
+  
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  color: green;
+}
+
+.example-full-width {
+  width: 100%;
+}  
+
+@media only screen and (max-width: 1500px) {
+  .setscrollbar {
+    border: 4px;
+    overflow-x: scroll;
+  }
+}

@@ -1,0 +1,43 @@
+<!-- Toolbar -->
+<br />
+<h2 align="center">Generate Phone Combinations</h2>
+<div class="toolbar" role="banner">
+  <div>
+    <br /><br /><br />
+
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Phone number</mat-label>
+        <span matPrefix>+&nbsp;</span>
+        <input type="tel" matInput placeholder="555-555-1234" #input>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+      </mat-form-field>
+    </form>
+
+    <br /><br /><br />
+
+    <div class="spinner-container" *ngIf="dataSource.loading$ | async">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <mat-table class="table mat-elevation-z8" [dataSource]="dataSource">
+
+      <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef>Phone Number</mat-header-cell>
+        <mat-cell *matCellDef="let phone">{{phone}}</mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+    </mat-table>
+
+    <mat-paginator [length]="totalCount" [pageSize]="3" [pageSizeOptions]="[3, 5, 10, 20]"></mat-paginator>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+</footer>
+
+<router-outlet></router-outlet>
